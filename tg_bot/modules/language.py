@@ -74,7 +74,8 @@ def locale_button(bot, update):
                                             InlineKeyboardButton("Russian 🇷🇺", callback_data="set_lang_ru"), 
                                             InlineKeyboardButton("Ukrainian 🇺🇦", callback_data="set_lang_ua")]] + [[
                                             InlineKeyboardButton("Spanish 🇪🇸", callback_data="set_lang_es")]] + [[
-                                            InlineKeyboardButton("⬅️ Back", callback_data="bot_start")]]))
+                                            InlineKeyboardButton("Turkish 🇹🇷", callback_data="set_lang_tr"))]] + [[
+                                            InlineKeyboardButton("⬅️ Back", callback_data="bot_start"))]]
 
     print(lang_match)
     query.message.delete()
