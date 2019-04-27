@@ -44,10 +44,9 @@ def reverse(bot: Bot, update: Update, args: List[str]):
         image_file = bot.get_file(file_id)
         image_file.download(imagename)
         if args:
-            txt = args.split("/reverse")
-            after = txt[1]
+            txt = args[0]
             try:
-                lim = int(after.strip())
+                lim = int(txt)
             except:
                 lim = 2
         else:
