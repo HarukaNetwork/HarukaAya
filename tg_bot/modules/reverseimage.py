@@ -90,10 +90,10 @@ def reverse(bot: Bot, update: Update, args: List[str]):
         fetchUrl = response.headers['Location']
 
         if response != 400:
-            msg.edit_text("Image was successfully uploaded to Google."
-                                "\n`Parsing source now. Maybe.")
+            xx = bot.send_message(chat_id, "Image was successfully uploaded to Google."
+                                  "\n`Parsing source now. Maybe.")
         else:
-            msg.edit_text("Google told me to go away.")
+            xx = bot.send_message(chat_id, "Google told me to go away.")
             return
 
         os.remove(imagename)
@@ -105,15 +105,15 @@ def reverse(bot: Bot, update: Update, args: List[str]):
             imgspage = match['similar_images']
 
         if guess and imgspage:
-            msg.edit_text(f"[{guess}]({fetchUrl})\nLooking for images...")
+            xx.edit_text(f"[{guess}]({fetchUrl})\nLooking for images...")
         else:
-            msg.edit_text("Couldn't find anything.")
+            xx.edit_text("Couldn't find anything.")
             return
 
         images = scam(imgspage, lim)
         if len(images) == 0:
-            msg.edit_text(f"[{guess}]({fetchUrl})\n[Visually similar images]({imgspage})"
-                                 "\nCouldn't fetch any images.")
+            xx.edit_text(f"[{guess}]({fetchUrl})\n[Visually similar images]({imgspage})"
+                          "\nCouldn't fetch any images.")
             return
 
         imglinks = []
