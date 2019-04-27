@@ -44,20 +44,14 @@ def reverse(bot: Bot, update: Update, args: List[str]):
         image_file = bot.get_file(file_id)
         image_file.download(imagename)
         if args:
-            try:
-                lim = int(args)
-            except:
-                lim = 2
+            lim = args
         else:
             lim = 2
     elif args and not reply:
         splatargs = msg.text.split(" ")
         if len(splatargs) == 3:                
             img_link = splatargs[1]
-            try:
-                lim = int(splatargs[2])
-            except:
-                lim = 2
+            lim = splatargs[2]
         elif len(splatargs) == 2:
             img_link = splatargs[1]
             lim = 2
