@@ -43,8 +43,11 @@ def reverse(bot: Bot, update: Update, args: List[str]):
             return
         image_file = bot.get_file(file_id)
         image_file.download(imagename)
-        if args.isdigit():
-            lim = args
+        if args:
+            try:
+                lim = int(args)
+            except:
+                lim = 2
         else:
             lim = 2
     elif args and not reply:
