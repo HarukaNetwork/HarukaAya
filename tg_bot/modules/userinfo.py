@@ -85,10 +85,6 @@ def set_about_bio(bot: Bot, update: Update):
             message.reply_text("Erm... yeah, I only trust sudo users to set my bio.")
             return
 
-        elif user_id == user_id and sender.id not in SUDO_USERS:
-            message.reply_text("Erm... yeah, I only trust sudo users to set sudo users bio LMAO.")
-            return
-
         text = message.text
         bio = text.split(None, 1)  # use python's maxsplit to only remove the cmd, hence keeping newlines.
         if len(bio) == 2:
@@ -101,6 +97,7 @@ def set_about_bio(bot: Bot, update: Update):
                         MAX_MESSAGE_LENGTH // 4, len(bio[1])))
     else:
         message.reply_text("Reply to someone's message to set their bio!")
+
 
 
 def __user_info__(user_id, chat_id):
