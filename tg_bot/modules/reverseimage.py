@@ -7,7 +7,7 @@ from urllib.error import URLError, HTTPError
 from bs4 import BeautifulSoup
 
 from typing import List
-from telegram import ParseMode, InputMediaPhoto, Update, Bot
+from telegram import ParseMode, InputMediaPhoto, Update, Bot, TelegramError
 from telegram.ext import run_async
 
 from tg_bot import dispatcher
@@ -51,9 +51,9 @@ def reverse(bot: Bot, update: Update, args: List[str]):
         splatargs = msg.text.split(" ")
         if len(splatargs) == 3:                
             img_link = splatargs[1]
-            if splatargs[2].isdigit():
-                lim = splatargs[2]
-            else:
+            try:
+                lim = int(splatargs[2])
+            except:
                 lim = 2
         elif len(splatargs) == 2:
             img_link = splatargs[1]
