@@ -91,7 +91,7 @@ def reverse(bot: Bot, update: Update, args: List[str]):
 
         if response != 400:
             xx = bot.send_message(chat_id, "Image was successfully uploaded to Google."
-                                  "\n`Parsing source now. Maybe.")
+                                  "\nParsing source now. Maybe.")
         else:
             xx = bot.send_message(chat_id, "Google told me to go away.")
             return
@@ -105,7 +105,7 @@ def reverse(bot: Bot, update: Update, args: List[str]):
             imgspage = match['similar_images']
 
         if guess and imgspage:
-            xx.edit_text(f"[{guess}]({fetchUrl})\nLooking for images...")
+            xx.edit_text(f"[{guess}]({fetchUrl})\nLooking for images...", parse_mode='Markdown')
         else:
             xx.edit_text("Couldn't find anything.")
             return
@@ -113,12 +113,12 @@ def reverse(bot: Bot, update: Update, args: List[str]):
         images = scam(imgspage, lim)
         if len(images) == 0:
             xx.edit_text(f"[{guess}]({fetchUrl})\n[Visually similar images]({imgspage})"
-                          "\nCouldn't fetch any images.")
+                          "\nCouldn't fetch any images.", parse_mode='Markdown')
             return
 
         imglinks = []
         for link in images:
-            lmao = InputMediaPhoto(type='photo', media=str(link))
+            lmao = InputMediaPhoto(media=str(link))
             imglinks.append(lmao)
 
         bot.send_media_group(chat_id=chat_id, media=imglinks, reply_to_message_id=rtmid)
