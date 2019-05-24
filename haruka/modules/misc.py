@@ -503,7 +503,7 @@ def execute(bot: Bot, update: Update, args: List[str]):
 
 def wiki(bot: Bot, update: Update):
     kueri = re.split(pattern="wiki", string=update.effective_message.text)
-    wikipedia.set_lang("id")
+    wikipedia.set_lang("en")
     if len(str(kueri[1])) == 0:
         update.effective_message.reply_text("Enter keywords!")
     else:
