@@ -10,8 +10,10 @@ from haruka.modules.helper_funcs.chat_status import user_not_admin, user_admin
 from haruka.modules.log_channel import loggable
 from haruka.modules.sql import reporting_sql as sql
 from haruka.modules.tr_engine.strings import tld
+from haruka.modules.helper_funcs.chat_status import bot_admin, user_admin
 
 REPORT_GROUP = 5
+REPORT_IMMUNE_USERS = bot_admin + user_admin
 
 
 @run_async
@@ -61,6 +63,10 @@ def report(bot: Bot, update: Update) -> str:
         reported_user = message.reply_to_message.from_user  # type: Optional[User]
         chat_name = chat.title or chat.first or chat.username
         admin_list = chat.get_administrators()
+        
+        if reported_user.id in REPORT_IMMUNE_USERS:
+            message.reply_text("Whitelisted Users cannot be Reported!")
+            return ""
 
         if int(reported_user.id) == int(user.id):
             return
