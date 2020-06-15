@@ -1,5 +1,5 @@
 {
-  "name": "Wolverine",
+  "name": "Sunny",
   "description": "Telegram's sassiest group manager. Modular Telegram group management bot!",
   "keywords": [
     "telegram",
@@ -8,7 +8,7 @@
     "manager",
     "3"
   ],
-  "repository": "https://github.com/Nitin1818/Logan",
+  "repository": "https://github.com/Baby-xD/Sunny-Leone",
   "env": {
     "ENV": {
       "description": "Setting this to ANYTHING will enable env variables. But, you need to understand the code to know what to set here!",
@@ -20,11 +20,11 @@
     },
     "OWNER_ID": {
       "description": "An integer of consisting of your owner ID",
-      "value": "680915808"
+      "value": "783435461"
     },
     "OWNER_USERNAME": {
       "description": "Your username",
-      "value": "Nitin181"
+      "value": "Baby_xD"
     },
     "WEBHOOK": {
       "description": "Setting this to ANYTHING will enable webhooks when in env mode messages",
