@@ -16,7 +16,7 @@ PyLyrics
 hurry.filesize
 googletrans
 tldextract
-PyYAML==5.1.2 
+PyYAML==5.4 
 pyowm
 wikipedia
 bleach
